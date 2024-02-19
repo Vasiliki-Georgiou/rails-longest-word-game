@@ -1,0 +1,21 @@
+<h1>Welcome to New</h1>
+
+<div>
+  <h3>Here are your letters:</h3>
+  <% @random_letters.each do |random_letter| %>
+    <span><%= random_letter %></span>
+  <% end %>
+</div>
+
+<div>
+  <form action="/score" method="post" data-turbo="false">
+      <label for="">What is the longest word you can find</label>
+      <br>
+
+      <input type="text" name="games" value="<%=@word_submitted%>">
+      <input type="submit" value="Play">
+
+      <input type="hidden" name="letters" value="<%=@random_letters%>">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  </form>
+</div>

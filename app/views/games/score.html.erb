@@ -1,0 +1,17 @@
+<h1>Welcome to Score</h1>
+
+<p>You submitted the word: <%= @word_submitted %></p>
+
+<% if @word["found"] == false%>
+<p>Your word does not exist in English</p>
+<% else %>
+<p><strong>Congratulations</strong> <%= @word_submitted %> is a valid English word.</p>
+<% end %>
+
+<% if @included %>
+<p>Sorry, but your word needs to contain the available letters</p>
+<% end %>
+
+<%= link_to "Play again", new_path %>
+
+<p><%= @letters %></p>
